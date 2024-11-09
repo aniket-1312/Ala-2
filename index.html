@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotating Square Animation</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .square {
+            width: 100px;
+            height: 100px;
+            background-color: #e74c3c;
+            animation: rotate-scale 3s infinite ease-in-out;
+            cursor: pointer;
+        }
+        @keyframes rotate-scale {
+            0%, 100% {
+                transform: rotate(0deg) scale(1);
+            }
+            50% {
+                transform: rotate(180deg) scale(1.5);
+            }
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="square"></div>
+    <br>
+    <br>
+    <div class="message">Click on the square</div>
+    <script>
+        document.querySelector('.square').addEventListener('click', () => {
+            const square = document.querySelector('.square');
+            const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+            square.style.backgroundColor = randomColor;
+        });
+    </script>
+</body>
+</html>
